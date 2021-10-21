@@ -1,1 +1,1 @@
-print hello
+echo "hello, Im Shell Script"
