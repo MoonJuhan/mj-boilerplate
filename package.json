@@ -8,7 +8,7 @@
     "create-mj-boilerplate": "node index.js"
   },
   "bin": {
-    "create-mj-boilerplate": "./index.js"
+    "create-mj-boilerplate": "./install.sh"
   },
   "repository": {
     "type": "git",
