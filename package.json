@@ -1,0 +1,19 @@
+{
+  "name": "mj-boilerplate",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MoonJuhan/mj-boilerplate.git"
+  },
+  "author": "MoonJuhan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MoonJuhan/mj-boilerplate/issues"
+  },
+  "homepage": "https://github.com/MoonJuhan/mj-boilerplate#readme"
+}
