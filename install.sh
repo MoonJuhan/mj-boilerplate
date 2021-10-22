@@ -8,12 +8,6 @@ function setName() {
     printf "Enter App Name: "
     read name
     echo "App Name is $name"
-
-    if [ ! -d $name ]; then
-        mkdir $name
-    else
-        echo "$name is exist"
-    fi
 }
 
 function keyInput() {
@@ -69,12 +63,16 @@ function setupPackage() {
     elif [ "${packageName}" == "nuxt3" ]; then
         echo "You Select Nuxt3"
     fi
+
+    mv mj-boilerplate ${name}
 }
 
 # Main Process Start
-# setName
+setName
 
-# if [ -d $name ]; then
-selectPackage
-setupPackage
-# fi
+if [ ! -d ${name} ]; then
+    selectPackage
+    setupPackage
+else
+    echo "${name} is exist"
+fi
