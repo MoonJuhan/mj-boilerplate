@@ -2,7 +2,7 @@ echo "create-mj-boilerplate"
 
 name=""
 input=""
-packageList=("vue3 (scheduled)" "nuxt2 (scheduled)" "nuxt3 (scheduled)")
+packageList=("vue3" "nuxt2" "nuxt3")
 
 function setName() {
     printf "Enter App Name: "
@@ -57,10 +57,24 @@ function selectPackage() {
     done
 
     clear
-    echo "You Select ${packageList[${selectIndex}]}"
-
 }
 
+function setupPackage() {
+    packageName=${packageList[${selectIndex}]}
+    if [ "${packageName}" == "vue3" ]; then
+        echo "You Select Vue3"
+        git clone --depth=1 --branch vue3 https://github.com/MoonJuhan/mj-boilerplate
+    elif [ "${packageName}" == "nuxt2" ]; then
+        echo "You Select Nuxt2"
+    elif [ "${packageName}" == "nuxt3" ]; then
+        echo "You Select Nuxt3"
+    fi
+}
+
+# Main Process Start
 # setName
 
+# if [ -d $name ]; then
 selectPackage
+setupPackage
+# fi
