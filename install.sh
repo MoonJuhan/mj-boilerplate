@@ -1,6 +1,8 @@
 echo "create-mj-boilerplate"
 
 name=""
+input=""
+packageList=("vue3 (scheduled)" "nuxt2 (scheduled)" "nuxt3 (scheduled)")
 
 function setName() {
     printf "Enter App Name: "
@@ -14,17 +16,51 @@ function setName() {
     fi
 }
 
-setName
+function keyInput() {
+    input=""
+    read -s -n 1 input
+    echo ${input}
+}
 
-# mkdir $name
+function selectPackage() {
+    selectIndex=0
 
-# SELECT=""
+    function printPackageList() {
+        echo "Press Enter to choose Package"
+        for ((i = 0; i < 3; i++)); do
+            if [ ${selectIndex} == ${i} ]; then
+                printf "●"
+            else
+                printf "○"
+            fi
+            echo " ${packageList[${i}]}"
+        done
+    }
 
-# while [[ "$SELECT" != $'\x0a' && "$SELECT" != $'\x20' ]]; do
-#     echo "Press <Space> to move selection"
-#     echo "Press <Enter> to confirm selection"
-#     read -d'' -s -n1
-#     echo "Debug/$SELECT/${#SELECT}"
-#     [[ "$SELECT" == $'\x0a' ]] && echo "enter" # do your install stuff
-#     [[ "$SELECT" == $'\x20' ]] && echo "space" && echo -ne "$options" # reprint options
-# done
+    clear
+    printPackageList
+
+    while true; do
+        keyInput
+
+        if [ "$input" == "A" ] && [ ${selectIndex} -gt 0 ]; then
+            selectIndex=$(expr ${selectIndex} - 1)
+        elif [ "$input" == "B" ] && [ ${#packageList[@]} -gt $(expr ${selectIndex} + 1) ]; then
+            selectIndex=$(expr ${selectIndex} + 1)
+        elif [ "${input}" == "" ]; then
+            break
+        fi
+
+        clear
+        printPackageList
+
+    done
+
+    clear
+    echo "You Select ${packageList[${selectIndex}]}"
+
+}
+
+# setName
+
+selectPackage
