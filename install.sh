@@ -57,14 +57,12 @@ function setupPackage() {
     packageName=${packageList[${selectIndex}]}
     if [ "${packageName}" == "vue3" ]; then
         echo "You Select Vue3."
-        git clone --depth=1 --branch vue3 https://github.com/MoonJuhan/mj-boilerplate
+        git clone --depth=1 --branch vue3 https://github.com/MoonJuhan/mj-boilerplate ${name}
     elif [ "${packageName}" == "nuxt2 (scheduled)" ]; then
         echo "You Select Nuxt2. The package is being prepared."
     elif [ "${packageName}" == "nuxt3 (scheduled)" ]; then
         echo "You Select Nuxt3. The package is being prepared."
     fi
-
-    mv mj-boilerplate ${name}
 }
 
 # Main Process Start
