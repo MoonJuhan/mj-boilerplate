@@ -11,7 +11,7 @@ npx create-mj-boilerplate
 ## List
 
 - Vue 3
+- React
 - Nuxt 3 (scheduled)
-- React (scheduled)
 - React Native (scheduled)
 - Nextjs (scheduled)
