@@ -65,8 +65,8 @@ function setupPackage() {
         echo "You Select React."
         git clone --depth=1 --branch react https://github.com/MoonJuhan/mj-boilerplate ${name}
 
-        changeFile "${name}/package.json" "mj-boilerplate-vue3-template" "${name}"
-        changeFile "${name}/package-lock.json" "mj-boilerplate-vue3-template" "${name}"
+        changeFile "${name}/package.json" "mj-boilerplate-react-template" "${name}"
+        changeFile "${name}/package-lock.json" "mj-boilerplate-react-template" "${name}"
     elif [ "${packageName}" == "nuxt2 (scheduled)" ]; then
         echo "You Select Nuxt2. The package is being prepared."
     elif [ "${packageName}" == "nuxt3 (scheduled)" ]; then
