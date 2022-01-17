@@ -2,7 +2,7 @@ echo "create-mj-boilerplate"
 
 name=""
 input=""
-packageList=("vue3")
+packageList=("vue3" "react")
 
 function setName() {
     printf "Enter App Name: "
@@ -21,7 +21,7 @@ function selectPackage() {
 
     function printPackageList() {
         echo "Press Enter to choose Package"
-        for ((i = 0; i < 1; i++)); do
+        for ((i = 0; i < 2; i++)); do
             if [ ${selectIndex} == ${i} ]; then
                 printf "●"
             else
@@ -58,6 +58,12 @@ function setupPackage() {
     if [ "${packageName}" == "vue3" ]; then
         echo "You Select Vue3."
         git clone --depth=1 --branch vue3 https://github.com/MoonJuhan/mj-boilerplate ${name}
+
+        changeFile "${name}/package.json" "mj-boilerplate-vue3-template" "${name}"
+        changeFile "${name}/package-lock.json" "mj-boilerplate-vue3-template" "${name}"
+    elif [ "${packageName}" == "react" ]; then
+        echo "You Select React."
+        git clone --depth=1 --branch react https://github.com/MoonJuhan/mj-boilerplate ${name}
 
         changeFile "${name}/package.json" "mj-boilerplate-vue3-template" "${name}"
         changeFile "${name}/package-lock.json" "mj-boilerplate-vue3-template" "${name}"
